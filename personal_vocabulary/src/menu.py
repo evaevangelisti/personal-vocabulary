@@ -388,16 +388,9 @@ class Menu:
 
         self._display_menu()
 
-        try:
-            while True:
-                key = self._stdscr.getch()
-                display = self._navigate(key)
+        while True:
+            key = self._stdscr.getch()
+            display = self._navigate(key)
 
-                if display:
-                    self._display_menu()
-        except KeyboardInterrupt:
-            curses.echo()  
-            curses.nocbreak()  
-            curses.endwin()  
-
-            exit()
+            if display:
+                self._display_menu()  

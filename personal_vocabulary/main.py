@@ -1,3 +1,4 @@
+import sys
 import os
 import curses
 
@@ -17,5 +18,12 @@ def main(stdscr: curses.window) -> None:
     menu.run()
 
 if __name__ == "__main__":
-    os.environ.setdefault("ESCDELAY", "25")
-    curses.wrapper(main)
+    try:
+        os.environ.setdefault("ESCDELAY", "25")
+        curses.wrapper(main)
+    except KeyboardInterrupt:
+        curses.echo()
+        curses.cbreak()
+        curses.endwin()
+
+        sys.exit()
