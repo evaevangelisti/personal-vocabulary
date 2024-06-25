@@ -302,7 +302,7 @@ class Menu:
                     return True
 
             case curses.KEY_UP:
-                if Mode.TERM:
+                if self._mode == Mode.TERM:
                     words = self._vocabulary.get_terms(self._word_filter.lower()).keys()
 
                     if words:
@@ -314,7 +314,7 @@ class Menu:
                             return True
 
             case curses.KEY_DOWN:
-                if Mode.TERM:
+                if self._mode == Mode.TERM:
                     words = self._vocabulary.get_terms(self._word_filter.lower()).keys()
 
                     if words:
