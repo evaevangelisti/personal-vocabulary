@@ -1,16 +1,19 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="personal_vocabulary",
-    version="0.1",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    name="personal-vocabulary",
+    version="1.0.0",
+    author="Eva",
+    packages=find_packages(),
     install_requires=[
+        "appdirs",
+        "beautifulsoup4",
         "requests",
+        "sortedcontainers",
     ],
     entry_points={
         "console_scripts": [
-            "personal_vocabulary=main:main",
+            "personal-vocabulary=personal_vocabulary.main:main",
         ],
     },
 )
